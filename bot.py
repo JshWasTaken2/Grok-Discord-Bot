@@ -43,7 +43,7 @@ async def on_ready():
 
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyDj5BCaL0eXKyAL5YhUF11f2CRaA31yXi8")
+genai.configure(api_key="GEMINI_API_KEY")
 
 #for m in genai.list_models():
 #    if 'generateContent' in m.supported_generation_methods:
