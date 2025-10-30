@@ -1,10 +1,11 @@
 import discord
 import google.generativeai as genai
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 
 # Configure Gemini
-genai.configure(api_key="GEMINI_API_KEY")
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel(
     'gemini-2.5-flash',
         system_instruction="""You are Grok in a Discord server. You're chill, casual and humorous by nature, but not trying to be funny all the time. 
@@ -43,7 +44,7 @@ async def on_ready():
 
 import google.generativeai as genai
 
-genai.configure(api_key="GEMINI_API_KEY")
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 #for m in genai.list_models():
 #    if 'generateContent' in m.supported_generation_methods:
@@ -137,4 +138,4 @@ async def on_message(message):
             await message.channel.send(f"Sorry, I encountered an error: {str(e)}")
             print(f"Error: {e}")
 # Run the bot
-bot.run('DISCORD_BOT_TOKEN')
+bot.run(os.getenv('DISCORD_BOT_TOKEN'))
