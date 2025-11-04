@@ -121,7 +121,7 @@ async def on_message(message):
                     history.append(f"{msg.author.name}: {msg.content}")
                 
                 # Reverse so oldest message is first
-                #history.reverse()
+                history.reverse()
                 
                 # Build context with history
                 context = "Recent conversation:\n" + "\n".join(history) + "\n\n"
